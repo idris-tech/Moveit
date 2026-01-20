@@ -112,7 +112,7 @@ function authMiddleware(req, res, next) {
 
 // Health check
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, message: "TrackFast API running" });
+  res.json({ ok: true, message: "moveit API running" });
 });
 
 app.get("/", (req, res) => {

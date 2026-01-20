@@ -1,19 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap');
+
+:root {
+  --primary: #6366f1; /* Electric Indigo */
+  --primary-glow: rgba(99, 102, 241, 0.4);
+  --bg-deep: #0f172a; /* Slate 900 */
+  --bg-card: rgba(30, 41, 59, 0.7); /* Slate 800 with glass */
+  --text-dim: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Outfit", "Inter", Arial, sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background: linear-gradient(rgba(2, 6, 23, 0.75), rgba(2, 6, 23, 0.85)),
-    url("admm.jpg");
-  background-size: cover;
-  background-position: center;
+  background: var(--bg-deep);
+  background: radial-gradient(circle at top right, #1e1b4b, transparent),
+              radial-gradient(circle at bottom left, #0f172a, transparent),
+              #0f172a;
   background-attachment: fixed;
   color: #fff;
-  overflow-x: hidden; /* Ensure single page feel */
+  overflow-x: hidden;
 }
 
 /* ======================
@@ -40,14 +51,14 @@ body {
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #00ffbf;
+  color: var(--primary);
   text-decoration: none;
 }
 
 .logo-img {
   height: 32px;
   width: auto;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 191, 0.4));
+  filter: drop-shadow(0 0 12px var(--primary-glow));
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -70,7 +81,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #00ffbf;
+  color: var(--primary);
 }
 
 /* ======================
@@ -112,7 +123,7 @@ body {
   display: flex;
   gap: 24px;
   font-weight: 600;
-  color: #00ffbf;
+  color: var(--primary);
 }
 
 /* ======================
@@ -124,22 +135,26 @@ body {
   padding: 40px;
   text-align: center;
 
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.18),
-    rgba(255, 255, 255, 0.08)
-  );
-  backdrop-filter: blur(18px);
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--bg-card);
+  backdrop-filter: blur(32px) saturate(150%);
+  border-radius: 32px;
+  border: 1.5px solid var(--glass-border);
+  box-shadow: 
+    0 40px 100px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.03);
+  animation: cardFloat 6s ease-in-out infinite;
+}
 
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .card h1 {
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 12px;
+  
 }
 
 .card p {
@@ -147,6 +162,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
+  margin-top: 20px;
 }
 
 /* ======================
@@ -155,6 +171,7 @@ body {
 .track-box {
   display: flex;
   gap: 12px;
+  margin-top: 30px;
 }
 
 input {
@@ -162,11 +179,12 @@ input {
   padding: 14px 16px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(15, 23, 42, 0.35);
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   outline: none;
-  transition: border 0.2s ease, background 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 input::placeholder {
@@ -174,25 +192,28 @@ input::placeholder {
 }
 
 input:focus {
-  border-color: #00ffbf;
+  border-color: var(--primary);
   background: rgba(15, 23, 42, 0.65);
+  box-shadow: 0 0 0 4px var(--primary-glow);
 }
 
 button {
   padding: 14px 22px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #00ffbf, #00c896);
-  color: #022c22;
+  background: linear-gradient(135deg, var(--primary), #4f46e5);
+  color: #fff;
   font-weight: 800;
   border: none;
   cursor: pointer;
-  font-size: 14px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 }
 
 button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(0, 255, 191, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px var(--primary-glow);
 }
 
 /* ======================
@@ -203,8 +224,8 @@ button:hover {
   margin: 24px auto;
   width: 42px;
   height: 42px;
-  border: 4px solid rgba(255, 255, 255, 0.25);
-  border-top: 4px solid #00ffbf;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  border-top: 4px solid var(--primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -260,6 +281,7 @@ button:hover {
 
   .track-box {
     flex-direction: column;
+    gap: 15px;
   }
 
   input,
@@ -288,20 +310,18 @@ button:hover {
 
 .progress-bar {
   height: 100%;
-  background: #00ffbf;
+  background: var(--primary);
   width: 0%;
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
 /* MODAL */
 .modal {
   position: fixed;
   inset: 0;
-  background: black;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("admm.jpg");
-  background-size: cover;
-  background-position: center;
-  background: blur(20px);
+  background: var(--bg-deep);
+  background: radial-gradient(circle at center, #1e1b4b, #0f172a);
+  backdrop-filter: blur(30px);
   display: none;
   align-items: center;
   justify-content: center;
@@ -357,8 +377,8 @@ button:hover {
 }
 
 .modal-content input:focus {
-  border-color: #00ffbf;
-  box-shadow: 0 0 0 3px rgba(0, 255, 191, 0.25);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
   background: rgba(15, 23, 42, 0.85);
 }
 
@@ -368,17 +388,17 @@ button:hover {
   padding: 14px;
   border-radius: 16px;
   border: none;
-  background: linear-gradient(135deg, #00ffbf, #00c896);
-  color: #022c22;
+  background: linear-gradient(135deg, var(--primary), #4f46e5);
+  color: #fff;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 #adminLoginBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0, 255, 191, 0.35);
+  box-shadow: 0 20px 50px var(--primary-glow);
 }
 
 @keyframes loginPop {
@@ -387,7 +407,7 @@ button:hover {
 }
 
 /* ===========================
-   TrackFast Premium Tracking UI
+   moveit Premium Tracking UI
    =========================== */
 
 .tf-wrap {
@@ -881,13 +901,13 @@ button:hover {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background: linear-gradient(135deg, #00ffbf, #00d4a3);
-    color: #022c22;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: #fff;
     padding: 14px 24px;
     border-radius: 20px;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 255, 191, 0.3);
+    box-shadow: 0 10px 30px var(--primary-glow);
     z-index: 1500;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -898,7 +918,7 @@ button:hover {
 
 .chat-toggle:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 255, 191, 0.45);
+    box-shadow: 0 15px 40px var(--primary-glow);
 }
 
 .chat-toggle.hidden { display: none; }
@@ -948,7 +968,7 @@ button:hover {
 
 .chat-title span:first-child {
     font-size: 20px;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 191, 0.5));
+    filter: drop-shadow(0 0 8px var(--primary-glow));
 }
 
 .chat-title-text {
@@ -963,7 +983,7 @@ button:hover {
 }
 
 .chat-title-text small {
-    color: #00ffbf;
+    color: var(--primary);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1033,12 +1053,12 @@ button:hover {
 }
 
 .chat-msg.admin, .chat-msg.superadmin {
-    background: linear-gradient(135deg, #00ffbf, #00d4a3);
-    color: #022c22;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: #fff;
     align-self: flex-end;
     border-bottom-right-radius: 4px;
     font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0, 255, 191, 0.15);
+    box-shadow: 0 4px 15px var(--primary-glow);
 }
 
 .chat-footer {
@@ -1060,15 +1080,15 @@ button:hover {
 }
 
 .chat-footer input:focus {
-    border-color: #00ffbf;
+    border-color: var(--primary);
     background: rgba(15, 23, 42, 0.8);
 }
 
 #chatSendBtn {
     width: 44px;
     height: 44px;
-    background: #00ffbf;
-    color: #022c22;
+    background: var(--primary);
+    color: #fff;
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -1082,7 +1102,7 @@ button:hover {
 
 #chatSendBtn:hover {
     transform: scale(1.05);
-    background: #00e6ac;
+    background: #4f46e5;
 }
 
 /* Mobile Adjustments for Support Chat */

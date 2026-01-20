@@ -41,7 +41,7 @@ body {
 
 .sidebar h2 {
   margin: 0;
-  color: #00ffbf;
+  color:#6366f1;
   font-size: 22px;
 }
 
@@ -178,15 +178,15 @@ button {
 }
 
 .pause {
-  background: #f59e0b;
+  background: #339430;
   color: #fff;
 }
 .resume {
-  background: #22c55e;
+  background: #2d22c5;
   color: #fff;
 }
 .update {
-  background: #10b981;
+  background: #aeb910;
   color: #fff;
 }
 .edit {
@@ -194,7 +194,7 @@ button {
   color: #fff;
 }
 .invoice {
-  background: #0f172a;
+  background: #3d72ee;
   color: #fff;
 }
 .delete {
@@ -218,7 +218,7 @@ button {
 
 .modal-card {
   width: min(520px, 95%);
-  background: #fff;
+  background: #f4c0c0;
   border-radius: 18px;
   padding: 20px;
 }

@@ -7,7 +7,7 @@ require("dotenv").config();
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to DB");
 
-    const email = (process.env.ADMIN_EMAIL || "admin@trackfast.com").trim().toLowerCase();
+    const email = (process.env.ADMIN_EMAIL || "admin@moveit.com").trim().toLowerCase();
     
     // Force update
     const res = await mongoose.connection.collection("admins").updateOne(

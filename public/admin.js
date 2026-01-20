@@ -1,5 +1,5 @@
 // =====================
-// TrackFast Admin Dashboard (Consolidated & Cleaned)
+// moveit Admin Dashboard (Consolidated & Cleaned)
 // =====================
 
 // =====================
@@ -7,7 +7,7 @@
 // =====================
 const BASE_URL = (window.location.hostname.includes("localhost") || window.location.hostname.includes("127.0.0.1"))
   ? "http://localhost:5000"
-  : "https://trackfast.onrender.com";
+  : "https://moveit.onrender.com";
 
 const API = (path) => `${BASE_URL}${path}`;
 

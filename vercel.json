@@ -1,7 +1,7 @@
 {
   "version": 2,
   "public": true,
-  "name": "trackfast-frontend",
+  "name": "moveit-frontend",
   "rewrites": [
     { "source": "/(.*)", "destination": "/public/$1" }
   ]

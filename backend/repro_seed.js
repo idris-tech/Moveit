@@ -27,7 +27,7 @@ require("dotenv").config();
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Connected");
 
-        const email = "regular@trackfast.com";
+        const email = "regular@moveit.com";
         const password = "password123";
         const hash = await bcrypt.hash(password, 10);
 

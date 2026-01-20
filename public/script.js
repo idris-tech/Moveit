@@ -1,10 +1,10 @@
 // =====================
-// TrackFast Front Page + Admin Login (FINAL – PAUSE FIXED)
+// moveit Front Page + Admin Login
 // =====================
 
 const BASE_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:5000"
-  : "https://trackfast.onrender.com";
+  : "https://moveit.onrender.com";
 
 // ===== ELEMENTS =====
 const trackBtn = document.getElementById("trackBtn");

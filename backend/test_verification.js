@@ -47,15 +47,15 @@ async function test() {
     }
 
     // 2. Login (Env Admin)
-    console.log('\n2. Login (admin@trackfast.com)...');
+    console.log('\n2. Login (admin@moveit.com)...');
     try {
-        const payload = JSON.stringify({ email: 'admin@trackfast.com', password: 'password123' }); 
+        const payload = JSON.stringify({ email: 'admin@moveit.com', password: 'password123' }); 
         
         // Try 'admin123'
         let res = await request(`${BASE}/api/admin/login`, {
              method: 'POST',
-             headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(JSON.stringify({ email: 'admin@trackfast.com', password: 'admin123' })) }
-        }, JSON.stringify({ email: 'admin@trackfast.com', password: 'admin123' }));
+             headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(JSON.stringify({ email: 'admin@moveit.com', password: 'admin123' })) }
+        }, JSON.stringify({ email: 'admin@moveit.com', password: 'admin123' }));
         
         console.log('   Attempt (admin123):', res.status);
         if (res.status !== 200) {
@@ -69,9 +69,9 @@ async function test() {
     }
     
     // 3. Login (Test Admin)
-    console.log('\n3. Login (testadmin@trackfast.com)...');
+    console.log('\n3. Login (testadmin@moveit.com)...');
     try {
-        const bodyStr = JSON.stringify({ email: 'testadmin@trackfast.com', password: 'admin123' });
+        const bodyStr = JSON.stringify({ email: 'testadmin@moveit.com', password: 'admin123' });
         let res = await request(`${BASE}/api/admin/login`, {
              method: 'POST',
              headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(bodyStr) }

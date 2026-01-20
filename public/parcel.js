@@ -1,6 +1,6 @@
 const BASE_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:5000"
-  : "https://trackfast.onrender.com";
+  : "https://moveit.onrender.com";
 
 const form = document.getElementById("parcelForm");
 const submitBtn = form.querySelector("button[type='submit']");

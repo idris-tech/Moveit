@@ -18,7 +18,7 @@ const Admin = mongoose.model("admin", adminSchema);
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected");
 
-    const email = "testadmin@trackfast.com";
+    const email = "testadmin@moveit.com";
     const pass = "admin123";
     const hash = await bcrypt.hash(pass, 10);
 
