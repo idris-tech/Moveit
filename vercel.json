@@ -2,7 +2,11 @@
   "version": 2,
   "public": true,
   "name": "moveit-frontend",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/public/$1" }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
+    }
   ]
 }
