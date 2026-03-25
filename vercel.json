@@ -1,7 +1,5 @@
 {
-  "version": 2,
-  "public": true,
-  "name": "moveit-frontend",
+
   "routes": [
     {
       "src": "/(.*)",
